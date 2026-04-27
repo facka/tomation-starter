@@ -49,7 +49,7 @@ template/
       login.page.ts    # Page Object Model for the login form
     tests/
       login.test.ts    # Automated login tests
-    main.ts            # Entry point — imports and runs all tests
+    main.ts            # Entry point — calls tomation to register tests
   package.json
   tomation.config.ts   # Target URL configuration
   vite.config.ts       # Vite build configuration

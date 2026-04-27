@@ -1,16 +1,14 @@
 import { Test, Assert, Click, Type, TypePassword } from 'tomation'
-import { usernameInput, passwordInput, loginButton, loginStatus } from '../pages/login.page'
+import LoginPage from '../pages/login.page'
 
 // Test: successful login with valid credentials
 export function LoginSuccessTest() {
   Test('Login success', () => {
     // Enter valid credentials
-    Type('admin').in(usernameInput)
-    TypePassword('1234').in(passwordInput)
-    Click(loginButton)
+    LoginPage.login({ username: 'admin', password: '1234' })
 
     // Expect the status label to show "Success"
-    Assert(loginStatus).textIs('Success')
+    Assert(LoginPage.loginStatus).textIs('Success')
   })
 }
 
@@ -18,11 +16,9 @@ export function LoginSuccessTest() {
 export function LoginErrorTest() {
   Test('Login error', () => {
     // Enter invalid credentials
-    Type('wrong-user').in(usernameInput)
-    TypePassword('wrong-pass').in(passwordInput)
-    Click(loginButton)
+    LoginPage.login({ username: 'wrong-user', password: 'wrong-pass' })
 
     // Expect the status label to show "Error"
-    Assert(loginStatus).textIs('Error')
+    Assert(LoginPage.loginStatus).textIs('Error')
   })
 }
