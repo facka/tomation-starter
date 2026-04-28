@@ -22,7 +22,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'MyTomationTests', // global variable name, required for IIFE format
+      name: 'tomation-script', // global variable name, required for IIFE format
       formats: ['iife'],        // IIFE generates a plain JS file
       fileName: () => 'tests.bundle.js',
     },
